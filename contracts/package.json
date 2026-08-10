@@ -1,0 +1,31 @@
+{
+  "name": "contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./accreditation": "./src/managed/accreditation/contract/index.js",
+    "./founder_majority": "./src/managed/founder_majority/contract/index.js"
+  },
+  "scripts": {
+    "compact": "bash scripts/compile.sh",
+    "compact:accreditation": "bash scripts/compile.sh accreditation",
+    "compact:founder_majority": "bash scripts/compile.sh founder_majority",
+    "copy-artifacts": "bash scripts/copy-artifacts.sh",
+    "build": "bash scripts/compile.sh && bash scripts/copy-artifacts.sh",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf src/managed/accreditation src/managed/founder_majority"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "0.15.0",
+    "@midnight-ntwrk/midnight-js-contracts": "^4.0.4",
+    "@midnight-ntwrk/midnight-js-types": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  }
+}
