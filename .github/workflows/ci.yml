@@ -1,0 +1,58 @@
+name: Midnight Ledger CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    name: Compile Compact contracts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.1.2
+      - name: Install Compact CLI
+        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/download/compact-v0.5.1/compact-installer.sh | sh
+      - run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: compact update 0.22
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter contracts compact
+      - run: pnpm --filter contracts test -- --pool=threads --maxWorkers=1 --minWorkers=1
+
+  application:
+    name: Typecheck, test, and build application
+    runs-on: ubuntu-latest
+    needs: contracts
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.1.2
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter contracts copy-artifacts
+      - run: pnpm --filter frontend typecheck
+      - run: pnpm --filter backend typecheck
+      - run: pnpm test
+      - run: pnpm --filter frontend build
+
+  live-demo:
+    name: Verify production demo
+    runs-on: ubuntu-latest
+    needs: application
+    steps:
+      - run: curl --fail --silent --show-error --location https://midnight-ledger-accreditation.vercel.app
+      - run: curl --fail --silent --show-error --location https://midnight-ledger-accreditation.vercel.app/deploy

@@ -1,0 +1,14 @@
+packages:
+  - "backend"
+  - "contracts"
+  - "frontend"
+
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  argon2: false
+  esbuild: false
+  msgpackr-extract: false
+  prisma: true
+  sharp: true
+  unrs-resolver: false
