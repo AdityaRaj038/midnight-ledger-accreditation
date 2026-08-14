@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 33% 96%;
+    --foreground: 24 16% 12%;
+    --card: 40 33% 99%;
+    --card-foreground: 24 16% 12%;
+    --primary: 173 60% 18%;
+    --primary-foreground: 42 33% 98%;
+    --secondary: 36 24% 91%;
+    --secondary-foreground: 24 16% 12%;
+    --muted: 37 17% 93%;
+    --muted-foreground: 25 8% 40%;
+    --accent: 31 44% 87%;
+    --accent-foreground: 24 16% 12%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 42 33% 98%;
+    --border: 30 15% 84%;
+    --input: 30 15% 84%;
+    --ring: 173 60% 18%;
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background:
+      radial-gradient(circle at top left, rgba(19, 78, 74, 0.12), transparent 32%),
+      radial-gradient(circle at top right, rgba(166, 124, 82, 0.18), transparent 28%),
+      linear-gradient(180deg, #faf6ef 0%, #f2ece2 45%, #ece4d7 100%);
+  }
+
+  ::selection {
+    background: rgba(19, 78, 74, 0.18);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/70 bg-white/80 shadow-[0_24px_80px_rgba(68,53,36,0.10)] backdrop-blur-xl;
+  }
+
+  .soft-card {
+    @apply glass-panel rounded-[1.75rem];
+  }
+
+  .input-shell {
+    @apply w-full rounded-2xl border border-stone-300 bg-white/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-700/10;
+  }
+
+  .accent-button {
+    @apply inline-flex items-center justify-center rounded-2xl bg-teal-950 px-5 py-3 text-sm font-semibold text-stone-50 transition hover:bg-teal-900;
+  }
+
+  .ghost-button {
+    @apply inline-flex items-center justify-center rounded-2xl border border-stone-300 bg-white/70 px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-white;
+  }
+}
