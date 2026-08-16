@@ -1,0 +1,98 @@
+
+> frontend@0.1.0 dev
+> next dev --port 3004
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3004
+- Network:       http://192.168.29.185:3004
+✓ Ready in 1593ms
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\singh\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\singh\Downloads\Midnight projects\Zeed\pnpm-workspace.yaml
+
+
+○ Compiling /deploy ...
+ GET /deploy 200 in 6.6s (next.js: 6.1s, application-code: 510ms)
+✓ Compiled in 178ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 466ms (next.js: 178ms, application-code: 289ms)
+ GET /deploy 200 in 210ms (next.js: 10ms, application-code: 200ms)
+ GET /deploy 200 in 126ms (next.js: 32ms, application-code: 95ms)
+ GET /deploy 200 in 127ms (next.js: 15ms, application-code: 112ms)
+✓ Compiled in 101ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 531ms (next.js: 186ms, application-code: 346ms)
+ GET /deploy 200 in 228ms (next.js: 9ms, application-code: 219ms)
+ GET /deploy 200 in 137ms (next.js: 37ms, application-code: 100ms)
+✓ Compiled in 128ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/app/deploy/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 490ms (next.js: 175ms, application-code: 315ms)
+ GET /deploy 200 in 206ms (next.js: 25ms, application-code: 181ms)
+ GET /deploy 200 in 119ms (next.js: 27ms, application-code: 92ms)
+✓ Compiled in 155ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 690ms (next.js: 223ms, application-code: 467ms)
+ GET /deploy 200 in 294ms (next.js: 15ms, application-code: 280ms)
+ GET /deploy 200 in 210ms (next.js: 43ms, application-code: 167ms)
+✓ Compiled in 218ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 712ms (next.js: 175ms, application-code: 537ms)
+ GET /deploy 200 in 397ms (next.js: 13ms, application-code: 383ms)
+ GET /deploy 200 in 95ms (next.js: 30ms, application-code: 65ms)
+ GET /deploy 200 in 128ms (next.js: 18ms, application-code: 110ms)
+ GET /deploy 200 in 172ms (next.js: 33ms, application-code: 139ms)
+✓ Compiled in 469ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/browser-contracts.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/browser-contracts.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 1092ms (next.js: 373ms, application-code: 719ms)
+ GET /deploy 200 in 564ms (next.js: 14ms, application-code: 550ms)
+ GET /deploy 200 in 566ms (next.js: 117ms, application-code: 448ms)
+ GET /deploy 200 in 569ms (next.js: 62ms, application-code: 507ms)
+✓ Compiled in 298ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/accreditation-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/accreditation-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 1390ms (next.js: 339ms, application-code: 1052ms)
+ GET /deploy 200 in 742ms (next.js: 113ms, application-code: 629ms)
+ GET /deploy 200 in 741ms (next.js: 295ms, application-code: 446ms)
+ GET /deploy 200 in 755ms (next.js: 213ms, application-code: 542ms)
+✓ Compiled in 171ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/founder-majority-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/founder-majority-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 1280ms (next.js: 377ms, application-code: 902ms)
+ GET /deploy 200 in 722ms (next.js: 32ms, application-code: 690ms)
+ GET /deploy 200 in 724ms (next.js: 117ms, application-code: 607ms)
+ GET /deploy 200 in 725ms (next.js: 515ms, application-code: 211ms)
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/accreditation-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/accreditation-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 105ms
+ GET /deploy 200 in 803ms (next.js: 182ms, application-code: 621ms)
+ GET /deploy 200 in 463ms (next.js: 23ms, application-code: 440ms)
+ GET /deploy 200 in 466ms (next.js: 78ms, application-code: 388ms)
+ GET /deploy 200 in 465ms (next.js: 317ms, application-code: 147ms)
+✓ Compiled in 144ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/founder-majority-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/founder-majority-service.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 972ms (next.js: 227ms, application-code: 746ms)
+ GET /deploy 200 in 632ms (next.js: 20ms, application-code: 612ms)
+ GET /deploy 200 in 635ms (next.js: 110ms, application-code: 525ms)
+ GET /deploy 200 in 637ms (next.js: 184ms, application-code: 452ms)
+ GET /deploy 200 in 108ms (next.js: 14ms, application-code: 94ms)
+ GET /deploy 200 in 118ms (next.js: 26ms, application-code: 92ms)
+✓ Compiled in 137ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/lib/midnight/providers.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 867ms (next.js: 242ms, application-code: 625ms)
+ GET /deploy 200 in 450ms (next.js: 26ms, application-code: 423ms)
+ GET /deploy 200 in 447ms (next.js: 82ms, application-code: 365ms)
+ GET /deploy 200 in 381ms (next.js: 241ms, application-code: 140ms)
+✓ Compiled in 154ms
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/app/deploy/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./Downloads/Midnight projects/Zeed/frontend/app/deploy/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /deploy 200 in 788ms (next.js: 222ms, application-code: 566ms)
+ GET /deploy 200 in 1309ms (next.js: 331ms, application-code: 978ms)
+ GET /deploy 200 in 815ms (next.js: 41ms, application-code: 774ms)
+ GET /deploy 200 in 814ms (next.js: 131ms, application-code: 683ms)
+ GET /deploy 200 in 173ms (next.js: 27ms, application-code: 146ms)
