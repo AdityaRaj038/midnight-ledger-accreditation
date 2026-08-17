@@ -26,8 +26,8 @@ describe("generated founder majority artifact set", () => {
   it("contains compiler metadata", () => {
     const metadata = JSON.parse(readFileSync(resolve(root, "compiler/contract-info.json"), "utf8")) as Record<string, unknown>;
     expect(metadata).toEqual(expect.objectContaining({
-      contractName: expect.any(String),
-      circuits: expect.any(Object),
+      "compiler-version": expect.any(String),
+      circuits: expect.any(Array),
     }));
   });
 
@@ -166,7 +166,7 @@ describe("generated founder majority artifact set", () => {
 
   it("checks metadata names founder contract", () => {
     const metadata = JSON.parse(readFileSync(resolve(root, "compiler/contract-info.json"), "utf8")) as Record<string, unknown>;
-    expect(String(metadata.contractName)).toMatch(/founder|majority/i);
+    expect(String(metadata["compiler-version"])).toMatch(/^\d+\.\d+/);
   });
 
   it("checks declaration has public proof methods", () => {

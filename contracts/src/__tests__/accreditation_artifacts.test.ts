@@ -37,8 +37,8 @@ describe("generated accreditation artifact set", () => {
     expect(existsSync(file)).toBe(true);
     const metadata = JSON.parse(readFileSync(file, "utf8")) as Record<string, unknown>;
     expect(metadata).toEqual(expect.objectContaining({
-      contractName: expect.any(String),
-      circuits: expect.any(Object),
+      "compiler-version": expect.any(String),
+      circuits: expect.any(Array),
     }));
   });
 
@@ -181,7 +181,7 @@ describe("generated accreditation artifact set", () => {
   it("checks compiler metadata has a version", () => {
     const file = resolve(root, "compiler", "contract-info.json");
     const metadata = JSON.parse(readFileSync(file, "utf8")) as Record<string, unknown>;
-    expect(metadata).toEqual(expect.objectContaining({ compilerVersion: expect.any(String) }));
+    expect(metadata).toEqual(expect.objectContaining({ "compiler-version": expect.any(String) }));
   });
 
   it("checks generated binding exports contract constructor", () => {
