@@ -1,0 +1,12 @@
+{
+  "..\\node_modules\\.pnpm\\next@16.2.6_@babel+core@7.2_b2b5bf9f887181a2984b81848e41da58\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\web-socket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
+    "id": "..\\node_modules\\.pnpm\\next@16.2.6_@babel+core@7.2_b2b5bf9f887181a2984b81848e41da58\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\web-socket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_pnpm_next_16_2_6__babel_core_7_2_b2b5bf9f887181a2984b81848e41-28f78d.js"
+    ]
+  },
+  "lib\\midnight\\providers.ts -> @midnight-ntwrk/ledger-v8": {
+    "id": "lib\\midnight\\providers.ts -> @midnight-ntwrk/ledger-v8",
+    "files": []
+  }
+}
