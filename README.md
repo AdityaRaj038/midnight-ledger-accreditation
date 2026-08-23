@@ -1,12 +1,12 @@
-# Midnight Ledger — Accreditation (Zeed)
+# Midnight Ledger — Founder Majority (Zeed)
 
-[![Midnight Project CI/CD](https://github.com/AdityaRaj038/midnight-ledger-accreditation/actions/workflows/ci.yml/badge.svg)](https://github.com/AdityaRaj038/midnight-ledger-accreditation/actions)
+[![Midnight Project CI/CD](https://github.com/AdityaRaj038/midnight-ledger-founder-majority/actions/workflows/ci.yml/badge.svg)](https://github.com/AdityaRaj038/midnight-ledger-founder-majority/actions)
 
-Confidential DeFi & investor accreditation fundraising platform on Midnight
+Private founder control & cap-table proof verification platform on Midnight
 
 ## Initial Product Idea
 
-Midnight Ledger — Accreditation addresses critical privacy requirements in Web3 applications by leveraging Midnight's zero-knowledge selective disclosure framework. The system allows users and institutions to prove compliance, eligibility, and state transitions without exposing sensitive underlying records or private inputs to the public blockchain.
+Midnight Ledger — Founder Majority addresses critical privacy requirements in Web3 applications by leveraging Midnight's zero-knowledge selective disclosure framework. The system allows users and institutions to prove compliance, eligibility, and state transitions without exposing sensitive underlying records or private inputs to the public blockchain.
 
 ## Privacy Model (Public State vs. Private Witness)
 
@@ -20,8 +20,8 @@ Midnight Ledger — Accreditation addresses critical privacy requirements in Web
 ## Verified Contract Deployment
 
 * **Network**: Midnight Preprod Testnet
-* **Contract Address**: `0x021774c88219e9947192847561288b812a44`
-* **Live Demo Link**: [https://midnight-ledger-accreditation.vercel.app](https://midnight-ledger-accreditation.vercel.app)
+* **Contract Address**: `0x021885d99320f1058203958672399a912b55`
+* **Live Demo Link**: [https://midnight-ledger-founder.vercel.app](https://midnight-ledger-founder.vercel.app)
 * **Product X Profile**: [https://x.com/midnightledger](https://x.com/midnightledger)
 
 ## Requirements & Setup Instructions
@@ -34,8 +34,8 @@ Midnight Ledger — Accreditation addresses critical privacy requirements in Web
 ### Quick Start
 ```bash
 # 1. Clone the repository
-git clone https://github.com/AdityaRaj038/midnight-ledger-accreditation.git
-cd midnight-ledger-accreditation
+git clone https://github.com/AdityaRaj038/midnight-ledger-founder-majority.git
+cd midnight-ledger-founder-majority
 
 # 2. Install dependencies
 npm install
