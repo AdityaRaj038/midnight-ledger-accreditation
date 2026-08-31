@@ -12,11 +12,12 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "@midnight-ntwrk/dapp-connector-api": "^4.0.1",
     "@midnight-ntwrk/compact-runtime": "0.15.0",
+    "@midnight-ntwrk/dapp-connector-api": "^4.0.1",
     "@midnight-ntwrk/ledger-v8": "8.1.0",
-    "@midnight-ntwrk/midnight-js-types": "^4.0.4",
+    "@midnight-ntwrk/midnight-js": "^4.1.1",
     "@midnight-ntwrk/midnight-js-network-id": "4.0.4",
+    "@midnight-ntwrk/midnight-js-types": "^4.0.4",
     "@midnight-ntwrk/midnight-js-utils": "4.0.4",
     "@midnight-ntwrk/wallet-sdk-address-format": "3.1.2",
     "@radix-ui/react-dialog": "^1.1.2",

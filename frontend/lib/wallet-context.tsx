@@ -51,9 +51,9 @@ interface WalletContextType {
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
-async function detect1AMWallet(): Promise<InitialAPI | null> {
+async function detectLaceWallet(): Promise<InitialAPI | null> {
   for (let i = 0; i < 50; i++) {
-    const w = window.midnight?.["1am"];
+    const w = window.midnight?.mnLace;
     if (w) return w;
     await new Promise((r) => setTimeout(r, 100));
   }
@@ -72,10 +72,10 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     setStatus("detecting");
     setError(null);
 
-    const api = await detect1AMWallet();
+    const api = await detectLaceWallet();
     if (!api) {
       setStatus("not_found");
-      setError("1AM wallet not found. Install the extension and refresh.");
+      setError("Lace wallet not found. Install the extension and refresh.");
       return;
     }
 

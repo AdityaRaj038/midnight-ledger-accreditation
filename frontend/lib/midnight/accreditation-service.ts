@@ -2,7 +2,7 @@
 
 import { Contract } from "contracts/accreditation";
 import { deployContract, findDeployedContract } from "./browser-contracts";
-import { buildContractProviders, connect1AMWallet } from "./providers";
+import { buildContractProviders, connectLaceWallet } from "./providers";
 
 // Witness functions return [updatedPrivateState, value] per compact-runtime protocol.
 function makeWitnesses(partial: Partial<{
@@ -33,7 +33,7 @@ function hexToBytes(value: string): Uint8Array {
 export async function deployAccreditationContract(investorIdHex: string): Promise<{
   contractAddress: string;
 }> {
-  const api = await connect1AMWallet();
+  const api = await connectLaceWallet();
   const providers = await buildContractProviders(api, "accreditation");
 
   const investorId = hexToBytes(investorIdHex);
@@ -56,7 +56,7 @@ export async function proveByIncomeOnChain(
   annualIncomeCents: bigint,
   investorIdHex: string,
 ): Promise<void> {
-  const api = await connect1AMWallet();
+  const api = await connectLaceWallet();
   const providers = await buildContractProviders(api, "accreditation");
 
   const contract = new Contract(makeWitnesses({ annualIncomeCents }));
@@ -76,7 +76,7 @@ export async function proveByNetWorthOnChain(
   netWorthCents: bigint,
   investorIdHex: string,
 ): Promise<void> {
-  const api = await connect1AMWallet();
+  const api = await connectLaceWallet();
   const providers = await buildContractProviders(api, "accreditation");
 
   const contract = new Contract(makeWitnesses({ netWorthCents }));

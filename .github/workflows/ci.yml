@@ -36,7 +36,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci || npm install
-      - run: npm test || true
+      - run: npm test
       - run: npm run build || true
 
   ui-verification:

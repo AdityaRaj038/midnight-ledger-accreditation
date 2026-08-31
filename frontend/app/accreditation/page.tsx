@@ -17,7 +17,7 @@ async function identityFromUserId(userId: string): Promise<string> {
 export default function AccreditationPage() {
   const router = useRouter();
   const { session, loading } = useAuth();
-  const { status: walletStatus } = useWallet();
+  const { status: walletStatus, connect, disconnect, wallet, error: walletError } = useWallet();
   const [method, setMethod] = useState<"income" | "netWorth" | null>(null);
   const [amount, setAmount] = useState("");
   const [contractAddress, setContractAddress] = useState("");
@@ -52,7 +52,7 @@ export default function AccreditationPage() {
     const cents = Math.round(amountNum * 100).toString();
     const address = contractAddress.trim();
     if (walletStatus !== "connected") {
-      setError("Connect a 1AM wallet before generating a proof.");
+      setError("Connect a Lace wallet before generating a proof.");
       return;
     }
     if (!/^(0x)?[0-9a-f]{64}$/i.test(address)) {
@@ -93,8 +93,41 @@ export default function AccreditationPage() {
               <h1 className="text-lg font-semibold">Accreditation</h1>
             </div>
           </div>
-          <ShieldCheck className="h-5 w-5 text-teal-950" />
+          <div className="flex items-center gap-4">
+            <ShieldCheck className="h-5 w-5 text-teal-950" />
+          </div>
         </nav>
+
+        <section className="soft-card p-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-semibold">Lace Wallet Connection</h2>
+              <p className="mt-1 text-sm text-stone-600">Connect your Midnight Lace wallet to interact with circuits.</p>
+            </div>
+            {walletStatus === "connected" ? (
+              <button onClick={() => disconnect()} className="accent-button bg-stone-200 text-stone-800 border-none">
+                Disconnect Wallet
+              </button>
+            ) : (
+              <button onClick={() => connect()} disabled={walletStatus === "connecting"} className="accent-button">
+                {walletStatus === "connecting" ? "Connecting..." : "Connect Lace Wallet"}
+              </button>
+            )}
+          </div>
+          
+          {walletError && (
+            <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm">
+              {walletError}
+            </div>
+          )}
+          
+          {walletStatus === "connected" && (
+            <div className="rounded-xl bg-teal-950/5 border border-teal-950/10 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-950">Connected Address (Shielded)</p>
+              <p className="font-mono text-sm break-all mt-1">{wallet?.name || "Connected"}</p>
+            </div>
+          )}
+        </section>
 
         <section className="soft-card p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">Current state</p>

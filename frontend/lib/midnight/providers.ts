@@ -279,16 +279,16 @@ export async function buildContractProviders(
 
 // ─── Lace wallet discovery ────────────────────────────────────────────────────
 
-export function discover1AMWallet() {
+export function discoverLaceWallet() {
   if (typeof window === "undefined") return null;
   const wallets = window.midnight ?? {};
-  // 1AM wallet injects under key "1am"
-  return wallets["1am"] ?? Object.values(wallets)[0] ?? null;
+  // Lace wallet injects under key "mnLace"
+  return wallets["mnLace"] ?? Object.values(wallets)[0] ?? null;
 }
 
-export async function connect1AMWallet(networkId = "preprod"): Promise<ConnectedAPI> {
-  const wallet = discover1AMWallet();
-  if (!wallet) throw new Error("1AM wallet not found. Install the 1AM browser extension.");
+export async function connectLaceWallet(networkId = "preprod"): Promise<ConnectedAPI> {
+  const wallet = discoverLaceWallet();
+  if (!wallet) throw new Error("Lace wallet not found. Install the Lace browser extension.");
   const api = await (wallet as any).connect(networkId) as ConnectedAPI;
   setNetworkId(networkId);
   // hintUsage is on ConnectedAPI (after connect), not on InitialAPI

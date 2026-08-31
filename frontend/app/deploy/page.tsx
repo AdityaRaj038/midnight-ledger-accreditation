@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AlertCircle, CheckCircle2, CircleOff, Loader2, ShieldCheck, Wallet } from "lucide-react";
-import { connect1AMWallet } from "@/lib/midnight/providers";
+import { connectLaceWallet } from "@/lib/midnight/providers";
 import { deployAccreditationContract } from "@/lib/midnight/accreditation-service";
 import { deployFounderMajorityContract } from "@/lib/midnight/founder-majority-service";
 
@@ -39,7 +39,7 @@ export default function DeployPage() {
     setError(null);
     setConnecting(true);
     try {
-      const api = await connect1AMWallet("preprod");
+      const api = await connectLaceWallet("preprod");
       const config = await api.getConfiguration() as any;
       const addresses = await api.getShieldedAddresses() as any;
       console.info("[zeed] getShieldedAddresses()", addresses);
@@ -59,7 +59,7 @@ export default function DeployPage() {
       setDeployIdentity(Array.from(hash, (byte) => byte.toString(16).padStart(2, "0")).join(""));
       setConnected(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to connect 1AM wallet");
+      setError(err instanceof Error ? err.message : "Failed to connect Lace wallet");
     } finally {
       setConnecting(false);
     }
@@ -103,7 +103,7 @@ export default function DeployPage() {
             Midnight preprod deploy
           </div>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Connect 1AM. Then deploy.
+            Connect Lace. Then deploy.
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-stone-600">
             This page uses the browser extension only. No local wallet, no seed, no server-side deployer. It talks to the preprod wallet, proof server, and indexer provided by the extension.
@@ -112,7 +112,7 @@ export default function DeployPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="rounded-3xl border border-stone-200 bg-stone-50/80 p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">Step 1</p>
-              <p className="mt-2 text-lg font-semibold">Connect 1AM</p>
+              <p className="mt-2 text-lg font-semibold">Connect Lace</p>
               <p className="mt-1 text-sm leading-6 text-stone-600">Unlock the wallet extension on preprod.</p>
             </div>
             <div className="rounded-3xl border border-stone-200 bg-stone-50/80 p-5">
@@ -128,7 +128,7 @@ export default function DeployPage() {
               disabled={connecting || deploying}
               className="accent-button"
             >
-              {connecting ? "Connecting..." : "Connect 1AM"}
+              {connecting ? "Connecting..." : "Connect Lace"}
             </button>
             <button
               onClick={handleDeploy}
@@ -166,7 +166,7 @@ export default function DeployPage() {
           <div className="mt-6 space-y-4">
             <div className="rounded-2xl bg-stone-50/80 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-stone-500">Wallet</p>
-              <p className="mt-1 text-sm font-medium">{connected ? "1AM connected" : "Waiting for 1AM"}</p>
+              <p className="mt-1 text-sm font-medium">{connected ? "Lace connected" : "Waiting for Lace"}</p>
               <p className="mt-1 text-sm text-stone-600">Network: {networkId}</p>
             </div>
             <div className="rounded-2xl bg-stone-50/80 p-4">
