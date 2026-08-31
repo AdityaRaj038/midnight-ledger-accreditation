@@ -44,6 +44,7 @@ type WalletStatus = "idle" | "detecting" | "not_found" | "connecting" | "connect
 interface WalletContextType {
   status: WalletStatus;
   wallet: ConnectedWallet | null;
+  address: string | null;
   error: string | null;
   connect: (networkId?: NetworkId) => Promise<void>;
   disconnect: () => void;
@@ -63,6 +64,7 @@ async function detectLaceWallet(): Promise<InitialAPI | null> {
 export function WalletProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<WalletStatus>("idle");
   const [wallet, setWallet] = useState<ConnectedWallet | null>(null);
+  const [address, setAddress] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const saveWallet = trpc.wallet.connect.useMutation();
@@ -88,6 +90,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
       // Save wallet to DB (best-effort — don't block UI on failure)
       try {
         const addresses = await connected.getShieldedAddresses();
+        setAddress(addresses.shieldedAddress);
         await saveWallet.mutateAsync({
           networkId,
           encryptionPublicKey: addresses.shieldedEncryptionPublicKey,
@@ -97,6 +100,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         // If it's a conflict (wallet belongs to another account), disconnect
         if (saveErr?.data?.code === "CONFLICT" || saveErr?.message?.includes("another account")) {
           setWallet(null);
+          setAddress(null);
           setStatus("error");
           setError("This wallet is already connected to another account.");
           localStorage.removeItem("wallet_connected");
@@ -113,6 +117,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
 
   const disconnect = useCallback(() => {
     setWallet(null);
+    setAddress(null);
     setStatus("idle");
     setError(null);
     removeWallet.mutate();
@@ -133,7 +138,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   }, [status]);
 
   return (
-    <WalletContext.Provider value={{ status, wallet, error, connect, disconnect }}>
+    <WalletContext.Provider value={{ status, wallet, address, error, connect, disconnect }}>
       {children}
     </WalletContext.Provider>
   );

@@ -17,7 +17,7 @@ async function identityFromUserId(userId: string): Promise<string> {
 export default function AccreditationPage() {
   const router = useRouter();
   const { session, loading } = useAuth();
-  const { status: walletStatus, connect, disconnect, wallet, error: walletError } = useWallet();
+  const { status: walletStatus, connect, disconnect, wallet, address, error: walletError } = useWallet();
   const [method, setMethod] = useState<"income" | "netWorth" | null>(null);
   const [amount, setAmount] = useState("");
   const [contractAddress, setContractAddress] = useState("");
@@ -50,12 +50,12 @@ export default function AccreditationPage() {
       return;
     }
     const cents = Math.round(amountNum * 100).toString();
-    const address = contractAddress.trim();
+    const contractAddr = contractAddress.trim();
     if (walletStatus !== "connected") {
       setError("Connect a Lace wallet before generating a proof.");
       return;
     }
-    if (!/^(0x)?[0-9a-f]{64}$/i.test(address)) {
+    if (!/^(0x)?[0-9a-f]{64}$/i.test(contractAddr)) {
       setError("Enter deployed 32-byte Midnight contract address.");
       return;
     }
@@ -64,11 +64,11 @@ export default function AccreditationPage() {
       setChainStatus("Generating zero-knowledge proof and submitting transaction…");
       const investorId = await identityFromUserId(session.user.id);
       if (method === "income") {
-        await proveByIncomeOnChain(address, BigInt(cents), investorId);
-        await proveByIncome.mutateAsync({ annualIncomeCents: cents, contractAddress: address });
+        await proveByIncomeOnChain(contractAddr, BigInt(cents), investorId);
+        await proveByIncome.mutateAsync({ annualIncomeCents: cents, contractAddress: contractAddr });
       } else {
-        await proveByNetWorthOnChain(address, BigInt(cents), investorId);
-        await proveByNetWorth.mutateAsync({ netWorthCents: cents, contractAddress: address });
+        await proveByNetWorthOnChain(contractAddr, BigInt(cents), investorId);
+        await proveByNetWorth.mutateAsync({ netWorthCents: cents, contractAddress: contractAddr });
       }
       setChainStatus("Proof transaction submitted. Local record updated after wallet call completed.");
     } catch (cause) {
@@ -124,7 +124,7 @@ export default function AccreditationPage() {
           {walletStatus === "connected" && (
             <div className="rounded-xl bg-teal-950/5 border border-teal-950/10 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.1em] text-teal-950">Connected Address (Shielded)</p>
-              <p className="font-mono text-sm break-all mt-1">{wallet?.name || "Connected"}</p>
+              <p className="font-mono text-sm break-all mt-1">{address || wallet?.name || "Connected"}</p>
             </div>
           )}
         </section>
