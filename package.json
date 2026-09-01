@@ -15,7 +15,8 @@
     "db:studio": "turbo run db:studio",
     "db:seed": "turbo run db:seed",
     "test": "turbo run test",
-    "test:ui": "turbo run test:ui"
+    "test:ui": "turbo run test:ui",
+    "compile-contracts": "turbo run build --filter contracts"
   },
   "devDependencies": {
     "next": "^16.2.6",
