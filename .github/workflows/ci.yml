@@ -37,6 +37,10 @@ jobs:
           node-version: 22
       - name: Install pnpm
         run: npm install -g pnpm@11.1.2
+      - name: Install Compact CLI
+        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/download/compact-v0.5.1/compact-installer.sh | sh
+      - run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: compact update 0.30
       - run: pnpm install
       - run: pnpm test
       - run: pnpm run build
@@ -52,6 +56,10 @@ jobs:
           node-version: 22
       - name: Install pnpm
         run: npm install -g pnpm@11.1.2
+      - name: Install Compact CLI
+        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/download/compact-v0.5.1/compact-installer.sh | sh
+      - run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: compact update 0.30
       - run: |
           if [ -d "ui" ]; then
             pnpm --filter ui install
