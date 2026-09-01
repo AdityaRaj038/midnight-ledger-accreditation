@@ -2,7 +2,7 @@
 
 import { Contract } from "contracts/founder_majority";
 import { deployContract, findDeployedContract } from "./browser-contracts";
-import { buildContractProviders, connect1AMWallet } from "./providers";
+import { buildContractProviders, connectLaceWallet } from "./providers";
 
 // Witness functions return [updatedPrivateState, value] per compact-runtime protocol.
 function makeWitnesses(founderShares: bigint, totalDilutedShares: bigint) {
@@ -29,7 +29,7 @@ export async function deployFounderMajorityContract(
   companyIdHex: string,
   thresholdBps: number,
 ): Promise<{ contractAddress: string }> {
-  const api = await connect1AMWallet();
+  const api = await connectLaceWallet();
   const providers = await buildContractProviders(api, "founder_majority");
 
   const companyId = hexToBytes(companyIdHex);
@@ -53,7 +53,7 @@ export async function publishFounderMajorityProofOnChain(
   founderShares: bigint,
   totalDilutedShares: bigint,
 ): Promise<void> {
-  const api = await connect1AMWallet();
+  const api = await connectLaceWallet();
   const providers = await buildContractProviders(api, "founder_majority");
 
   const contract = new Contract(makeWitnesses(founderShares, totalDilutedShares));
